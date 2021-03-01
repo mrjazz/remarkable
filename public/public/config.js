@@ -1,0 +1,1 @@
+window.URL_API = 'http://localhost:5000/';

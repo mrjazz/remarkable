@@ -1,0 +1,223 @@
+body {
+  padding: 0px;
+  margin: 0px;  
+}
+.wrapper {  
+  margin-top:20px;
+}
+header {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;    
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  left: 0px; 
+  border-bottom: 1px solid rgb(212, 218, 223);  
+  padding: 10px;
+  height: 26px;
+  color: grey;  
+  background-color: #192235;    
+}
+header .menu__left {
+  flex-grow: 1;  
+  align-items: stretch;
+}
+header .menu__right {
+  flex-grow: 1;  
+  text-align: right;
+  align-items: stretch;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+}
+.menu__right button {
+  background-color: #fff;
+  padding: 5px;
+  margin-left: 5px;
+  border-radius: 5px;
+  border: 0px;
+  cursor: pointer;
+}
+.menu__right a {
+  padding: 5px;
+  color: #ddd;   
+}
+header a {
+  text-decoration: none;
+}
+header a:visited {
+  color: #E6ECF1;
+}
+header a:hover {
+  text-decoration: underline;
+}
+.sidebar {
+  align-items: stretch;
+  flex-grow: 0;
+  flex-shrink: 0;  
+  max-width: 400px;
+  border-right: 1px solid rgb(230, 236, 241);
+  background-color: #F5F7F9;
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 14px;
+  margin-top:27px;
+  padding-right: 10px;
+  overflow-y: auto;
+}
+.sidebar ul {  
+  list-style-type: none;  
+  padding: 0px 0px 0px 10px;
+}
+.sidebar li {
+  padding-left: 4px;
+}
+.sidebar a:visited {
+  color: rgb(0, 0, 238);
+}
+.footer {
+  order: 4;
+  flex: 1 100%;
+  border-top: 2px solid #E6ECF1;
+}
+.main {    
+  display: flex;    
+  flex-flow: row;
+  flex: 1 0 0;  
+}
+header .btn {
+  padding-top: 5px;
+  cursor: pointer;
+  color: #fff;  
+}
+.header .logo {
+  height: 26px; 
+  font-size: 22px;
+  font-weight: 500;
+  color: #E6ECF1;
+}
+@media all and (max-width: 800px) {
+  .sidebar {
+    position: fixed;
+    height: 100%;       
+  }  
+}
+.content {      
+  font-size: 15px;
+  flex: 1 0 0;
+  margin: 25px 20px 20px 20px;
+  color: rgb(59, 69, 78);  
+}
+.content h1 {
+  font-size: 1.5em;
+}
+.content h2 {
+  font-size: 1.3em;
+}
+.content h3 {
+  font-size: 1.1em;
+}
+.content h4 {
+  font-size: 0.9em;
+}.folder {
+    font-weight: 500;
+    padding: 0px;    
+    cursor: pointer;
+}
+.folder:hover {    
+    text-decoration: underline;
+}
+.icon {    
+    width: 1em;
+    height: 1em;
+    padding: 0px;    
+    position: relative;
+    top:2px;
+    left:-2px;        
+}
+a {
+    cursor: pointer;
+}
+a:hover {
+    text-decoration: underline;
+}
+.menu li {
+    padding-bottom: 3px;
+    padding-top: 3px;
+    line-height: 18px;    
+}.searchIcon {
+    font-size: 1.3em;
+}
+.searchInput {
+    margin: 10px 0px 0px 10px;
+}
+.searchInput input {
+    width: 270px;
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 4px;
+    border: 1px solid gray;
+}
+.iconBtn {
+    top:3px;
+    position: relative;
+    font-size: 1.2em;
+    cursor: pointer;
+}.searchResult {
+    padding: 16px;
+}
+
+.searchResult .title {
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.searchResult p, .searchResult li {
+    font-size: 12px;
+    font-weight: 400;    
+}
+
+.searchResult {
+    border-bottom: 1px solid #dddddd;
+}
+
+.searchResult:hover {
+    background-color: rgb(245, 247, 249);
+    cursor: pointer;
+}
+
+.searchResult:hover .title {
+    text-decoration: underline;
+}.article {
+    display: flex;    
+    flex-flow: row; 
+}
+.found {
+    background-color: orange;
+}
+.markdown {    
+    flex: 3 0 0;
+    min-width: 100px;
+}
+.refBtn {    
+    cursor: pointer;    
+    margin-top: 16px;    
+}
+.refTitle {
+    white-space: nowrap;
+    padding-left: 40px;
+    font-size: 16px;    
+}
+.refs {    
+    flex: 0 2;
+}
+.refs ul {
+    padding: 0px 0px 0px 30px;
+    margin: 0px;
+}
+.refs li {
+    list-style-type: square;  
+    font-size: 14px;
+}
