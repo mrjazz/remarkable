@@ -2,6 +2,8 @@
 
 Is a lightweight and functional readonly interface for wotk with your markdown documents.
 
+You can see an example [here](https://remarkablewiki.herokuapp.com/).
+
 ## Features
 
  - Text search
@@ -28,9 +30,9 @@ Options:
 You can configure all the parameters in package.json:
 
 ```
-    ...
-    "start": "node ./dist/server.js -p ../wiki -u user -s password",
-    ...
+  ...
+  "start": "node ./dist/server.js -p ../wiki -u user -s password",
+  ...
 ```
 
 ## Heroku
@@ -38,4 +40,9 @@ You can configure all the parameters in package.json:
 It's heroku friendly. You can put in `wiki` directory your markdown files, publish the app on Heroku and make it accessable through web interface.
 
 ```
+> heroku login
+> heroku git:remote -a remarkablewiki
+> git commit -am "init"
+> git push heroku master
 ```
+
