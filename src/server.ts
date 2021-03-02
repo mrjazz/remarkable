@@ -20,7 +20,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
-app.use(express.static(path.join(__dirname, 'public'), {
+app.use(express.static(path.join(__dirname, '/../public'), {
     etag: true,
     lastModified: true,
     // setHeaders: (res, path) => {
@@ -47,8 +47,8 @@ app.all('*', (req, res) => {
         resources.resourceExtensions.includes(path.extname(fullPath.toLowerCase()))
     ) {
         return res.sendFile(fullPath); // if resource is allowed and existing send it
-    }
-    res.sendFile(`${resources.rootDir}/public/index.html`);
+    }    
+    res.sendFile('/index.html', {'root': `${resources.rootDir}/../public`});
 });
 
 app.listen(PORT, function () {

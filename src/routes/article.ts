@@ -32,7 +32,8 @@ const isClientRequest = (headers) => headers['content-type'] &&
     headers['content-type'].toLowerCase().startsWith('application/json');
 
 router.get('/*.md',  (req, res) => {  
-  const fullPath = path.resolve(docsPath + req._parsedUrl.pathname);  
+  const fullPath = path.resolve(docsPath + decodeURI(req._parsedUrl.pathname));
+  console.log(`${rootDir}/../public/index.html`);  
 
   if (isClientRequest(req.headers) && validators.validatePath(fullPath)) {
     if (path.extname(fullPath.toLowerCase()) == '.md') {
@@ -48,8 +49,8 @@ router.get('/*.md',  (req, res) => {
     } else {      
       res.sendFile(fullPath);
     }
-  } else {
-    res.sendFile(`${rootDir}/public/index.html`);
+  } else {    
+    res.sendFile('/index.html', {'root': `${rootDir}/../public`});
   }
   
 });
