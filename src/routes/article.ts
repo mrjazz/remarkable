@@ -32,8 +32,7 @@ const isClientRequest = (headers) => headers['content-type'] &&
     headers['content-type'].toLowerCase().startsWith('application/json');
 
 router.get('/*.md',  (req, res) => {  
-  const fullPath = path.resolve(docsPath + decodeURI(req._parsedUrl.pathname));
-  console.log(`${rootDir}/../public/index.html`);  
+  const fullPath = path.resolve(docsPath + decodeURI(req._parsedUrl.pathname));  
 
   if (isClientRequest(req.headers) && validators.validatePath(fullPath)) {
     if (path.extname(fullPath.toLowerCase()) == '.md') {
