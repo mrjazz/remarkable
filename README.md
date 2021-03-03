@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/remarkablewiki.svg)](https://badge.fury.io/js/remarkablewiki)
 
-Is a lightweight and functional readonly interface for wotk with your markdown documents.
+Is a lightweight and functional readonly interface for work with your markdown documents.
 
 You can see an example [here](https://remarkablewiki.herokuapp.com/).
 
