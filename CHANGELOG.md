@@ -1,5 +1,9 @@
 # Remarkable Wiki Changelog
 
+v0.0.7
+
+ - [X] Adaptive design fixes
+
 v0.0.6
 
  - [X] Readme spelling fix
