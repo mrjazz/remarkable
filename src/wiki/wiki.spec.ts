@@ -42,6 +42,7 @@ describe('Highlight', function() {
   })
 });
 
+
 describe('Wiki', function() {
   it('scan validation', async function() {
     const result = await wiki.scan(wikiPath);
@@ -52,8 +53,6 @@ describe('Wiki', function() {
     const wikilinks = result.wikilinks;
 
     // console.log(references);
-    // console.log(links);
-
     // console.log(tree.map((i, k) => console.log(k, i.name)));
 
     assert.strictEqual(Array.from(result.links).length, 70, 'not the same as find . -name "*.md" | wc -l');
@@ -65,18 +64,18 @@ describe('Wiki', function() {
     assert.strictEqual('dev', tree[4].name)
     assert.strictEqual('/dev', tree[4].path)
     assert(tree[4].items);
-    assert.strictEqual(12, tree[4].items.length)  
+    assert.strictEqual(12, tree[4].items.length)
 
     assert.strictEqual('/404.md', links.get('404.md'));
     assert.strictEqual('/publishing/generate-gatsby-site.md', links.get('generate-gatsby-site.md'));
 
-    const contribution = references.get('contribution-guide.md');    
+    const contribution = references.get('contribution-guide.md');
     assert(contribution);
     assert.strictEqual(4, contribution.length);
     assert(contribution.includes('principles.md'));
     assert(contribution.includes('code-of-conduct.md'));
     assert(contribution.includes('architecture.md'));
-    assert(contribution.includes('tutorial-adding-a-new-command-to-the-vs-code-extension.md'));    
+    assert(contribution.includes('tutorial-adding-a-new-command-to-the-vs-code-extension.md'));
     
     const architectureLinks = wiki.getWikilinkByPath(wikilinks, links, 'architecture.md');
     assert.strictEqual(architectureLinks.length, 1);
@@ -84,7 +83,7 @@ describe('Wiki', function() {
     assert.strictEqual(architectureLinks[0].link, '/contribution-guide.md');
 
     
-    const contributionLinks = architectureLinks.map((n: any) => n.wikilink); // check all wikilinks    
+    const contributionLinks = architectureLinks.map((n: any) => n.wikilink); // check all wikilinks
     assert.strictEqual(contributionLinks.length, 1);
     assert(contributionLinks.includes('contribution-guide.md'));
 
@@ -129,21 +128,21 @@ describe('HTML renderer', function() {
     await repository.load();
     
     const html = highlight.renderPage(wikiPath + '/contribution-guide.md');
-    const wikilinkedHtml = highlight.replaceWikiLinks(html, (link) => repository.link(link));    
+    const wikilinkedHtml = highlight.replaceWikiLinks(html, (link) => repository.link(link));
     assert(wikilinkedHtml.indexOf('<a href="/principles.md">[[principles]]</a>') > 0, 'wrong wikilink replacement');
 
-    const wikilinks = repository.wikilinks('contribution-guide.md');    
+    const wikilinks = repository.wikilinks('contribution-guide.md');
     assert.strictEqual(wikilinks.length, 6, 'wrong count of wikilinks parsed');
   });
 
-  it('html in markdown', async function() {       
-    const markdown = '<p>text</p>'; 
+  it('html in markdown', async function() {
+    const markdown = '<p>text</p>';
     const html = highlight.renderMarkdown(markdown);
     assert.strictEqual(html, markdown, 'markdown parser should ignore html');
   });
 
-  it('markdown parse', async function() {       
-    const markdown = '# Title\n - 111\n - 222'; 
+  it('markdown parse', async function() {
+    const markdown = '# Title\n - 111\n - 222';
     const html = highlight.renderMarkdown(markdown);
     const expected = '<h1>Title</h1>\n<ul>\n<li>111</li>\n<li>222</li>\n</ul>\n';
     assert.strictEqual(html, expected, 'markdown parser should ignore html');

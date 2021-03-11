@@ -21,7 +21,7 @@ export const markHighlight = (html, searchText) => {
   const regExp = new RegExp(searchText, 'gi');
 
   const highlightedHtml = html.replace(regExp, highligth);
-  return highlightedHtml.replace(/<a(.*)>(.*?)<\/a>/gi, (outer, inner) => {      
+  return highlightedHtml.replace(/<a(.*)>(.*?)<\/a>/gi, (outer, inner) => {
       if (inner.indexOf(highligth) > 0) {
         return outer.replace(highligth, searchText);
       }
@@ -29,8 +29,8 @@ export const markHighlight = (html, searchText) => {
     });
 };
 
-export const replaceWikiLinks = (html, getLink) => {    
-  return html.replace(/\[\[(.*?)\]\]/gi, (outer, inner) => {    
+export const replaceWikiLinks = (html, getLink) => {
+  return html.replace(/\[\[(.*?)\]\]/gi, (outer, inner) => {
     const link = getLink(inner);
     if (link) {
       return '<a href="' + link + '">[[' + inner + ']]</a>';

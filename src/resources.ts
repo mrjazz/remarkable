@@ -27,7 +27,7 @@ const alternativePath: string = rootDir + '/' + docsPath;
 
 if (fs.existsSync(docsPath)) {
   // passed path exists
-} else if (fs.existsSync(alternativePath)) {  
+} else if (fs.existsSync(alternativePath)) {
   docsPath = alternativePath;
 } else {
   console.log(`Wiki path "${docsPath}" doesn't exist`);
@@ -48,7 +48,7 @@ export const resourceExtensions = ['.png', '.gif', '.jpg', '.jpeg', '.md'];
 module.exports = {
   repository,
   rootDir,
-  docsDir,  
+  docsDir,
   authUser,
   docsPath,
   authPassword,

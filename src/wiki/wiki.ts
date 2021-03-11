@@ -70,7 +70,7 @@ interface WikiTree extends WikiTreeInternal {
     wikilinks: Map<string, string[]>
 }
 
-export async function scan(directory: string): Promise<WikiTree> {    
+export async function scan(directory: string): Promise<WikiTree> {
     const result = await scanDirectory(directory, directory);
     const wikilinks = new Map();    
     result.references.forEach((links, linkName) => {
@@ -104,11 +104,13 @@ async function scanDirectory(directory: string, prefix: string): Promise<WikiTre
         const articlePath = fullPath.substr(prefixPath.length);
         if (f.isDirectory()) {
             const tmp = await scanDirectory(fullPath, prefix);
-            tree.push({
-                name: f.name, items: tmp.tree, path: articlePath
-            });
-            tmp.links.forEach(addLink);
-            tmp.references.forEach((v, k) => addToMap(references, k, v));            
+            if (tmp.tree.length > 0) {
+                tree.push({
+                    name: f.name, items: tmp.tree, path: articlePath
+                });
+                tmp.links.forEach(addLink);
+                tmp.references.forEach((v, k) => addToMap(references, k, v));            
+            }            
         } else {
             if (isMarkdown(f.name)) {
                 const meta = await readMeta(fullPath);

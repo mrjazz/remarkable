@@ -1,5 +1,11 @@
 # Remarkable Wiki Changelog
 
+v0.0.9
+ - [X] Split .json and .md requests
+
+v0.0.8
+ - [X] Ignoring empty directories in notes tree
+
 v0.0.7
 
  - [X] Adaptive design fixes

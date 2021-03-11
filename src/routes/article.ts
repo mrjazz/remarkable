@@ -28,13 +28,15 @@ function render(pagePath: string, highlight: string): ArticlePage {
   };    
 }
 
-const isClientRequest = (headers) => headers['content-type'] &&
-    headers['content-type'].toLowerCase().startsWith('application/json');
+router.get('/*.md',  (req, res, next) => {
+  res.sendFile('/index.html', {'root': `${rootDir}/../public`});
+});
 
-router.get('/*.md',  (req, res) => {  
-  const fullPath = path.resolve(docsPath + decodeURI(req._parsedUrl.pathname));  
+router.get('/*.json',  (req, res) => {  
+  const tmpPath = path.resolve(docsPath + decodeURI(req._parsedUrl.pathname));
+  const fullPath = tmpPath.substr(0, tmpPath.length-4) + 'md';  
 
-  if (isClientRequest(req.headers) && validators.validatePath(fullPath)) {
+  if (validators.validatePath(fullPath)) {
     if (path.extname(fullPath.toLowerCase()) == '.md') {
       try {
         const data = render(fullPath, req.query.highlight);
