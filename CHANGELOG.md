@@ -1,5 +1,8 @@
 # Remarkable Wiki Changelog
 
+v0.0.10
+ - [X] Move folders above items in menu
+
 v0.0.9
  - [X] Split .json and .md requests
 
