@@ -1,5 +1,8 @@
 # Remarkable Wiki Changelog
 
+v0.0.11
+ - [X] Tab title added
+
 v0.0.10
  - [X] Move folders above items in menu
 

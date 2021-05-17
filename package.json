@@ -1,6 +1,6 @@
 {
     "name": "remarkablewiki",
-    "version": "0.0.10",
+    "version": "0.0.11",
     "description": "Remarkable Wiki provides user-friendly interface for reading and navigating in markdown documents",
     "main": "dist/server.js",
     "keywords": [

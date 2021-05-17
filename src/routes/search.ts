@@ -6,10 +6,9 @@ import express = require('express');
 const router = express.Router();
 
 
-router.get('/search.json', (req, res, next) => {
+router.get('/search.json', (req, res, next) => {  
   wiki.searchAndSort(resources.docsPath, req.query.text)
     .then(result => {      
-      console.log(result);
       res.setHeader('Etag', etag(JSON.stringify(result)));
       res.json(result);
     })
