@@ -1,5 +1,8 @@
 # Remarkable Wiki Changelog
 
+v0.0.12
+ - [X] Remove nodemon from dependencies
+
 v0.0.11
  - [X] Tab title added
 

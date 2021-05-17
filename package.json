@@ -1,6 +1,6 @@
 {
     "name": "remarkablewiki",
-    "version": "0.0.11",
+    "version": "0.0.12",
     "description": "Remarkable Wiki provides user-friendly interface for reading and navigating in markdown documents",
     "main": "dist/server.js",
     "keywords": [
@@ -30,13 +30,12 @@
     },
     "dependencies": {
         "commander": "^6.2.1",
-        "markdown-it": "^12.0.4",
         "cookie-parser": "^1.4.5",
         "cors": "^2.8.5",
         "dotenv": "^8.2.0",
         "etag": "^1.8.1",
         "express": "^4.17.1",
-        "nodemon": "^2.0.6"
+        "markdown-it": "^12.0.4"
     },
     "devDependencies": {
         "@types/assert": "^1.5.4",
